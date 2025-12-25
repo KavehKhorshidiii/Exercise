@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { allProduct } from "./productData/productData";
 
 export default  function Home() {
 
@@ -10,6 +10,9 @@ export default  function Home() {
         <Link href={'/car'}>car</Link>
         <Link href={'/phone'}>phone</Link>
         <Link href={'/house'}>house</Link>
+        {
+          allProduct.map((item)=><Link key={item.id} href={item.name}>{item.name}</Link>)
+        }
       </main>
     </div>
   );
