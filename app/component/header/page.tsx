@@ -1,14 +1,6 @@
-import React from 'react'
 import ProfileRealtor from './profileRealtor'
 import Image from 'next/image'
 import realtorProfile from "@/data/realtorData.json"
-import { strict } from 'assert'
-
-export type propType = {
-  img:string
-  name:string,
-  details:string
-}
 
 export default function Header() {
   return (
