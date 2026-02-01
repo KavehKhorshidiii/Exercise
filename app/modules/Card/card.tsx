@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function homeStore() {
+export default function card() {
   return (
     <div>
-      Home Store
+      card
     </div>
   )
 }
