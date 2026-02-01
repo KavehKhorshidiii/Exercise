@@ -17,7 +17,6 @@ export default function Header() {
       </div>
 
 
-
       <div className=' flex-2/3 bg-gray-700'>
       <div className=' flex p-10 justify-center'>
         <Image className=' ' src='/img/logo.png' alt='logo' width={200} height={200}/>
