@@ -4,7 +4,7 @@ import realtorProfile from "@/data/realtorData.json"
 
 export default function Header() {
   return (
-    <div className='header flex  sticky top-0 '>
+    // <div className='header flex  sticky top-0 '>
 
       <div className=' flex-1/3 flex flex-col justify-center bg-gray-900'>
         <div className=' p-20'>
@@ -14,6 +14,8 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+
 
       <div className=' flex-2/3 bg-gray-700'>
       <div className=' flex p-10 justify-center'>
