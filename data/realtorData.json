@@ -3,17 +3,17 @@
         {
             "img":"/img/realtor-1.jpeg",
             "name":"مهدی ایلخانی",
-            "details":"394فروش خانه"
+            "details":"394 فروش خانه"
         },
         {
             "img":"/img/realtor-2.jpeg",
             "name":"کوثر بهشتی",
-            "details":"596فروش خانه"
+            "details":"596 فروش خانه"
         },
         {
             "img":"/img/realtor-3.jpeg",
             "name":"عرشیا احسنی",
-            "details":"510فروش خانه"
+            "details":"510 فروش خانه"
         }
     ]
 }

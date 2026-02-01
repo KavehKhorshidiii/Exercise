@@ -11,8 +11,8 @@ type propType ={
 
 export default function profileRealtor({realtor}:propType) {
   return (
-    <div className='flex'>
-        <div className='flex flex-col'>
+    <div className='flex gap-3 justify-center'>
+        <div className='flex justify-center text-end flex-col'>
             <div>
                 {realtor.name}
             </div>
