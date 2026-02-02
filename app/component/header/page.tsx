@@ -24,7 +24,7 @@ export default function Header() {
       <div className=' text-end p-10'>
         <p className=' text-2xl'>:خانه خودتان</p>
         <p className=' text-2xl'>با خرید خانه نهایت ازادی را احساس کنید</p>
-        <button className=' bg-green-500 border-2 rounded-md'>املاک ما را مشاهده کنید</button>
+        <button className=' bg-yellow-600 min-h-10 px-4 rounded-md'>املاک ما را مشاهده کنید</button>
       </div>
         <div className='flex justify-between p-10'>
         <Image src='/img/logo-bbc.png' alt='logo' width={100} height={100}/>

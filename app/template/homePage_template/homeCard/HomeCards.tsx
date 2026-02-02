@@ -1,13 +1,14 @@
-import React from 'react'
-import HomeData from '../../../../data/data.json'
-import cardSection from './cardSection'
+import HomeData from '@/data/data.json'
+import Card from '@/app/modules/Card/card'
 
-export default function theHomeCards() {
+export default function TheHomeCards() {
 
   return(
-    <h1>
-      theHomeCards
-    </h1>
+    
+      
+        HomeData.homes.map(item => { return <Card details={item} key={item.id}/>})
+      
+    
   )
 
 }
