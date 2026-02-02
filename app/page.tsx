@@ -7,7 +7,7 @@ import TheHomeCards from "./template/homePage_template/homeCard/HomeCards";
 
 export default function Home() {
   return (
-    <div className="bg-sky-400">
+    <div className="bg-white flex flex-col justify-center items-center">
       
       <TheFeatures />
       <TheStory />

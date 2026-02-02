@@ -4,11 +4,9 @@ import Card from '@/app/modules/Card/card'
 export default function TheHomeCards() {
 
   return(
-    
-      
-        HomeData.homes.map(item => { return <Card details={item} key={item.id}/>})
-      
-    
+    <div className='grid content-center justify-items-center grid-cols-3 w-10/12'>
+      {HomeData.homes.map(item => { return <Card details={item} key={item.id}/>})}
+    </div>
   )
 
 }
