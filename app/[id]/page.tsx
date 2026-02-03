@@ -13,11 +13,11 @@ export default async function HomeDetails({ params }:{params : ParamsType}) {
 
     return(
       <>
-        <p> id : {homeDetails?.id}</p>
-        <p> title : {homeDetails?.title}</p>
-        <p> price : {homeDetails?.price}</p>
-        <p> price : {homeDetails?.meterage}</p>
-        <p> price : {homeDetails?.roomCount}</p>
+        <p> id: {homeDetails?.id}</p>
+        <p> title: {homeDetails?.title}</p>
+        <p> price: {homeDetails?.price}</p>
+        <p> price: {homeDetails?.meterage}</p>
+        <p> roomCount: {homeDetails?.roomCount}</p>
       </>
     )
   
