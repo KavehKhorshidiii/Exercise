@@ -1,22 +1,21 @@
 import data from '@/data/data.json'
 
 type ParamsType = {
-  id: number 
+  id: string 
 }
 
 export default async function HomeDetails({ params }:{params : ParamsType}) {
 
   const {id} = await params
 
-  const homeDetails = data.homes.find( home => home.id === id )
+  const homeDetails = data.homes.find( home => home.id === Number(id) )
 
-  if(homeDetails){
-    console.log(homeDetails.id)
-  }
 
     return(
       <>
-        <h1> id : {homeDetails?.id}</h1>
+        <p> id : {homeDetails?.id}</p>
+        <p> title : {homeDetails?.title}</p>
+        <p> price : {homeDetails?.price}</p>
       </>
     )
   
