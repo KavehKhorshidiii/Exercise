@@ -1,8 +1,16 @@
-import React from 'react'
+"use client"
 
-export default function homeDetails() {
+type paramsType = {
+  params: Promise<{id:string}>
+}
+
+export default function homeDetails({params}:paramsType) {
+  console.log(params)
+
+  const theParams = params
+
   return (
-    <div>
+    <div onClick={()=>console.log(theParams)}>
       Home Details
     </div>
   )
