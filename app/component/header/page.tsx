@@ -19,7 +19,7 @@ export default function Header() {
 
       <div className=' flex-2/3 bg-gray-700'>
       <div className=' flex p-10 justify-center'>
-        <Image className=' ' src='/img/logo.png' alt='logo' width={200} height={200}/>
+        <Image priority className="h-12 w-auto" src='/img/logo.png' alt='logo' width={200} height={200}/>
       </div>
       <div className=' text-end p-10'>
         <p className=' text-2xl'>:خانه خودتان</p>
@@ -27,10 +27,10 @@ export default function Header() {
         <button className=' bg-yellow-600 min-h-10 px-4 rounded-md'>املاک ما را مشاهده کنید</button>
       </div>
         <div className='flex justify-between p-10'>
-        <Image src='/img/logo-bbc.png' alt='logo' width={100} height={100}/>
-        <Image src='/img/logo-bi.png' alt='logo' width={100} height={100}/>
-        <Image src='/img/logo-forbes.png' alt='logo' width={100} height={100}/>
-        <Image src='/img/logo-techcrunch.png' alt='logo' width={100} height={100}/>
+        <Image className="h-12 w-auto" priority src='/img/logo-bbc.png' alt='logo' width={200} height={200}/>
+        <Image className="h-12 w-auto" priority src='/img/logo-bi.png' alt='logo' width={200} height={200}/>
+        <Image className="h-12 w-auto" priority src='/img/logo-forbes.png' alt='logo' width={100} height={100}/>
+        <Image className="h-12 w-auto" priority src='/img/logo-techcrunch.png' alt='logo' width={100} height={100}/>
         </div>
       </div>
 

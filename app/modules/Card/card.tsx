@@ -26,7 +26,7 @@ export default function card({details}:homeDetailsType) {
             <p>price: {details.price}</p>
           </div>
          
-            <Link href={`/homeStore/${details.id}`} className='py-5 text-center bg-yellow-600 w-full '>مشاهده ملک</Link>
+            <Link href={`/${details.id}`} className='py-5 text-center bg-yellow-600 w-full '>مشاهده ملک</Link>
          
         </div>
 
