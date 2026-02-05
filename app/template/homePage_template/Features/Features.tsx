@@ -19,6 +19,9 @@ export default function TheFeatures() {
   
   const homeFilter = dataHomes.homes.filter((item)=> item.title.includes(search))
 
+ 
+
+  {useEffect(()=>{setHomes(...dataHomes)},[])}
 
   const runSearchFunc = () => {
     setHomes([...homeFilter])
@@ -26,12 +29,12 @@ export default function TheFeatures() {
 
   }
 
+  console.log(homes)
   
   return (
     
     <div className=' bg-gray-900 w-full h-96'>
       
-      {/* {useEffect(()=>{console.log("object")},[])} */}
       
       <div className='grid my-5 border-red-600 border-8 content-center gap-10 justify-items-center grid-cols-3 w-10/12'>
       { 
