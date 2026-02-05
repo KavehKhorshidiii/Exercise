@@ -19,6 +19,7 @@ export default function Card({details}:homeDetailsType) {
         <div className='Image h-1/2 bg-gray-600 '></div>
 
         <div className=' flex h-1/2 flex-col justify-between'>
+        
           <div>
             <p>{details.title}</p>
             <p>roomCount: {details.roomCount}</p>
