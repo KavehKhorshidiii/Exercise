@@ -1,6 +1,8 @@
 import ProfileRealtor from './profileRealtor'
 import Image from 'next/image'
 import realtorProfile from "@/data/realtorData.json"
+import Link from 'next/link'
+
 
 export default function Header() {
   return (
@@ -24,7 +26,7 @@ export default function Header() {
       <div className=' text-end p-10'>
         <p className=' text-2xl'>:خانه خودتان</p>
         <p className=' text-2xl'>با خرید خانه نهایت ازادی را احساس کنید</p>
-        <button className=' bg-yellow-600 min-h-10 px-4 rounded-md'>املاک ما را مشاهده کنید</button>
+        <Link href={'store'} className=' bg-yellow-600 min-h-10 px-4 rounded-md'>املاک ما را مشاهده کنید</Link>
       </div>
         <div className='flex justify-between p-10'>
         <Image className="h-12 w-auto" priority src='/img/logo-bbc.png' alt='logo' width={200} height={200}/>

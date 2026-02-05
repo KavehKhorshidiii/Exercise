@@ -11,7 +11,7 @@ type homeDetailsType = {
   }
 }
 
-export default function card({details}:homeDetailsType) {
+export default function Card({details}:homeDetailsType) {
   return (
 
       <div className=' w-96 h-96 bg-gray-400 overflow-hidden rounded-4xl border-4'>
