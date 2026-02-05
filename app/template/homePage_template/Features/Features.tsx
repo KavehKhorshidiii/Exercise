@@ -31,7 +31,7 @@ export default function TheFeatures() {
     
     <div className=' bg-gray-900 w-full h-96'>
       
-      {useEffect(()=>{console.log("object")},[])}
+      {/* {useEffect(()=>{console.log("object")},[])} */}
       
       <div className='grid my-5 border-red-600 border-8 content-center gap-10 justify-items-center grid-cols-3 w-10/12'>
       { 
