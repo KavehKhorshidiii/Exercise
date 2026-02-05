@@ -16,7 +16,7 @@ export default function card({details}:homeDetailsType) {
 
       <div className=' w-96 h-96 bg-gray-400 overflow-hidden rounded-4xl border-4'>
 
-        <div className='Image h-1/2 bg-white '></div>
+        <div className='Image h-1/2 bg-gray-600 '></div>
 
         <div className=' flex h-1/2 flex-col justify-between'>
           <div>

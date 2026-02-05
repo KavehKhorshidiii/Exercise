@@ -10,14 +10,13 @@ export default async function HomeDetails({ params }:{params : ParamsType}) {
 
   const homeDetails = data.homes.find( home => home.id === Number(id) )
 
-
     return(
-      <>
-        <p> title: {homeDetails?.title}</p>
-        <p> price: {homeDetails?.price}</p>
-        <p> meterage: {homeDetails?.meterage}</p>
-        <p> roomCount: {homeDetails?.roomCount}</p>
-      </>
+      <div className=' bg-gray-500'>
+        <p className='text-4xl'> title: {homeDetails?.title}</p>
+        <p className='text-4xl'> price: {homeDetails?.price}</p>
+        <p className='text-4xl'> meterage: {homeDetails?.meterage}</p>
+        <p className='text-4xl'> roomCount: {homeDetails?.roomCount}</p>
+      </div>
     )
   
 }
