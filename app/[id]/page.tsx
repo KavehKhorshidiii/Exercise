@@ -14,7 +14,6 @@ export default async function HomeDetails({ params }:{params : ParamsType}) {
     return(
       <>
         <p> title: {homeDetails?.title}</p>
-        
         <p> price: {homeDetails?.price}</p>
         <p> meterage: {homeDetails?.meterage}</p>
         <p> roomCount: {homeDetails?.roomCount}</p>
