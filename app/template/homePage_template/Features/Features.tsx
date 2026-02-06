@@ -25,7 +25,6 @@ export default function TheFeatures() {
    
 
   console.log("pagination:" ,  pagination)
-  //console.log("pagination:" ,  pagination)
 
 
 
