@@ -17,6 +17,14 @@ export default function TheFeatures() {
   const [search, setSearch] = useState("")
   const [homes, setHomes] = useState<HomeStateType[]>([...dataHomes.homes])
 
+  useEffect(()=>{
+
+    if(homes.length === 0 ){
+      setHomes([...dataHomes.homes])
+    }
+
+  },[search])
+
   const homeFilter = dataHomes.homes.filter((item) => item.title.includes(search))
 
   const runChangeFunc = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,13 +35,12 @@ export default function TheFeatures() {
   return (
 
     <div className='  my-5 content-center gap-10 justify-items-center grid-cols-3  w-full'>
+      <input onChange={(e) => runChangeFunc(e)} className=' text-black border-black border-4 bg-amber-100 h-10 w-60 rounded-2xl' type="search" name="" id="" />
       <div className=' grid my-5 content-center gap-10 justify-items-center grid-cols-3 w-10/12'>
         {
           homes.map(item => { return <Card details={item} key={item.id} /> })
         }
       </div>
-      <h1 className=' text-white'>{search}</h1>
-      <input onChange={(e) => runChangeFunc(e)} className=' text-black border-black border-4 bg-amber-100 h-10 w-60 rounded-2xl' type="search" name="" id="" />
     </div>
   )
 
