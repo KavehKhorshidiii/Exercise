@@ -19,7 +19,6 @@ export default function TheFeatures() {
   const [countBtnPagination, setCountBtnPagination] = useState(Math.ceil( dataHomes.homes.length / countPost ))
 
 
-  //const [homes, setHomes] = useState<HomeStateType[]>([...dataHomes.homes])
   const [homes, setHomes] = useState<HomeStateType[]>([...dataHomes.homes].slice(pagination , countPost))
   const [search, setSearch] = useState("")
 
