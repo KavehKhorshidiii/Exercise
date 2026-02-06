@@ -14,21 +14,33 @@ type HomeStateType = {
 
 export default function TheFeatures() {
 
-  const [homes, setHomes] = useState<HomeStateType[]>([...dataHomes.homes])
+  const [countPost, setCountPost] = useState(6)
+  const [pagination, setPagination] = useState(0)
+  const [countBtnPagination, setCountBtnPagination] = useState(Math.ceil( dataHomes.homes.length / countPost ))
+
+
+  //const [homes, setHomes] = useState<HomeStateType[]>([...dataHomes.homes])
+  const [homes, setHomes] = useState<HomeStateType[]>([...dataHomes.homes].slice(pagination , countPost))
   const [search, setSearch] = useState("")
 
-  const homeFilter = dataHomes.homes.filter((item) => item.title.includes(search))
+   
 
+  console.log("pagination:" ,  pagination)
+  //console.log("pagination:" ,  pagination)
+
+
+
+  
+
+
+  const homeFilter = dataHomes.homes.filter((item) => item.title.includes(search))
 
   const runChangeFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
   }
-
   const runBtnFunc = () => {
     setHomes([...homeFilter])
   }
-
-
   const runChangeOption = (e: ChangeEvent<HTMLSelectElement>) => {
     switch (e.target.value) {
       case "price": {
@@ -73,16 +85,18 @@ export default function TheFeatures() {
           </select>
         </div>
       </div>
-
       <div className=' grid my-5 content-center gap-10 justify-items-center grid-cols-3 w-10/12'>
         {
           homes.map(item => { return <Card details={item} key={item.id} /> })
         }
       </div>
-      <ul className=" flex flex-row-reverse gap-2 border-2 p-5 rounded-2xl text-black">
-          <li className="pagination__item"><a href="#"> next </a></li>
-          <li className="pagination__item"><a href="#">2</a></li>
-          <li className="pagination__item active"><a href="#" >1</a></li>
+
+
+      <ul className=" flex  gap-2 border-2 p-5 rounded-2xl text-black">
+        {
+          Array.from({length:countBtnPagination}).map((item , index) => <li key={index} className=" flex justify-center items-center border-2 rounded-full size-12 "><button onClick={()=>setPagination(index)}> {index + 1} </button></li>)
+        }
+        <li className=" justify-center content-center"><a href="#"> next </a></li>
       </ul>
     </div>
   )
