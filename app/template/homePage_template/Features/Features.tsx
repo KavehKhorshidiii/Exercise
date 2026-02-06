@@ -23,7 +23,8 @@ export default function TheFeatures() {
       setHomes([...dataHomes.homes])
     }
 
-  },[search])
+  },[search , ...dataHomes.homes])
+  
 
   const homeFilter = dataHomes.homes.filter((item) => item.title.includes(search))
 
