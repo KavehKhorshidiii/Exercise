@@ -62,7 +62,7 @@ export default function TheFeatures() {
       <div className='w-10/12 m-5 justify-between flex gap-2 '>
         <div>
           <input onChange={(e) => runChangeFunc(e)} className=' text-black border-black border-2 bg-white h-10 w-60 rounded-2xl' type="search" />
-          <button onClick={runBtnFunc} className=' text-black border-black border-2 bg-white h-10 px-4 rounded-2xl'>Search</button>
+          <button onClick={runBtnFunc} className=' ml-1 text-black border-black border-2 bg-white h-10 px-4 rounded-2xl'>Search</button>
         </div>
         <div>
           <select onChange={runChangeOption} className='text-black border-black border-2 bg-white h-10 w-60 rounded-2xl' name="a" id="">
