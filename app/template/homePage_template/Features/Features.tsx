@@ -79,6 +79,11 @@ export default function TheFeatures() {
           homes.map(item => { return <Card details={item} key={item.id} /> })
         }
       </div>
+      <ul className=" flex flex-row-reverse gap-2 border-2 p-5 rounded-2xl text-black">
+          <li className="pagination__item"><a href="#"> next </a></li>
+          <li className="pagination__item"><a href="#">2</a></li>
+          <li className="pagination__item active"><a href="#" >1</a></li>
+      </ul>
     </div>
   )
 
