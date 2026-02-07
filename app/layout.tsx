@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./component/header/page";
-import Sidebar from "./component/sidebar/page";
-import Footer from "./component/footer/page";
 
 
 
@@ -30,19 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${geistSans.variable} ${geistMono.variable} antialiased`}>
-
-
-        <div className=" flex flex-row-reverse">
-          <Sidebar/>
-          <div className="w-full">
-              <Header/>
+      <body className={` ${geistSans.variable} ${geistMono.variable} antialiased`}> 
               {children}
-              <Footer/>
-          </div>
-        </div>
-
-
       </body>
     </html>
   );
