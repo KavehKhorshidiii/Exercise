@@ -19,6 +19,7 @@ type ProductsType = {
   title:string
 }
 
+
 export default async function Home() {
 
   const ApiFunc:ProductsType[] = await Api()
