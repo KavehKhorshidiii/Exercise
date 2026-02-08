@@ -8,7 +8,6 @@ async function Api() {
   return res.json()
 }
 
-
 type ProductsType = {
   category:string,
   description:string,
@@ -18,7 +17,6 @@ type ProductsType = {
   rating:{ rate:number, count:number },
   title:string
 }
-
 
 export default async function Home() {
 
