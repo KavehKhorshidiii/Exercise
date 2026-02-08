@@ -1,12 +1,13 @@
 async function Api() {
   const res = await fetch('https://fakestoreapi.com/products')
-  
+
   if (!res.ok) {
     console.log("Error")
   }
 
   return res.json()
 }
+
 
 type ProductsType = {
   category:string,
@@ -27,7 +28,7 @@ export default async function Home() {
       {
 
         ApiFunc.map((item:ProductsType) => <p key={item.id}>{item.title}</p>)
-        
+
       }
     </div>
   );
