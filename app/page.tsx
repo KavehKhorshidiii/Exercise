@@ -1,12 +1,4 @@
-async function Api() {
-  const res = await fetch('https://fakestoreapi.com/products')
 
-  if (!res.ok) {
-    console.log("Error")
-  }
-
-  return res.json()
-}
 
 type ProductsType = {
   category:string,
