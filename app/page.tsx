@@ -1,5 +1,3 @@
-
-
 export default async function Home() {
 
   const ApiFunc:ProductsType[] = await Api()
