@@ -1,6 +1,6 @@
 
 export default function page() {
   return (
-    <div>test</div>
+    <div>kaveh</div>
   )
 }
