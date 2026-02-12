@@ -1,13 +1,12 @@
 "use client";
-
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export default function FilterButton() {
 
 
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const router = useRouter(); // هوک useRouter برای دسترسی به متدهای ناوبری
+  const pathname = usePathname(); // هوک usePathname برای دسترسی به مسیر فعلی
+  const searchParams = useSearchParams(); // هوک useSearchParams برای دسترسی به پارامترهای جستجو (query parameters)
 
 
   console.log('router =>' , router)
