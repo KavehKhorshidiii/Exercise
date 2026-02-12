@@ -42,11 +42,12 @@ export default function FilterButton() {
     router.push(url); // هدایت بدون رفرش
   };
 
+  
   return (
         <>
             <p>color = {searchParams.get("color")}</p>
             <p>color = {searchParams.get("size")}</p>
-            
+
             <button onClick={handleClick}>اعمال فیلتر جدید</button>
         </>
   ) 
