@@ -22,10 +22,13 @@
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export default function FilterButton() {
+
+
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  
   console.log('router =>' , router)
   console.log('pathname => ' , pathname)
   console.log('searchParams => ' , searchParams)
