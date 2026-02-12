@@ -23,7 +23,8 @@ export default function FilterButton() {
     // ترکیب pathname و query → URL کامل
     const url = `${pathname}?${newQuery.toString()}`;
 
-    router.push(url); // هدایت بدون رفرش
+    // هدایت بدون رفرش
+    router.push(url); 
   };
 
 
@@ -36,6 +37,6 @@ export default function FilterButton() {
         </>
   ) 
 
-  
+
 }
 
