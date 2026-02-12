@@ -30,6 +30,7 @@ export default function FilterButton() {
   console.log('pathname => ' , pathname)
   console.log('searchParams => ' , searchParams)
 
+
   const handleClick = () => {
     // ساخت query جدید
     const newQuery = new URLSearchParams(searchParams.toString());
@@ -42,7 +43,7 @@ export default function FilterButton() {
     router.push(url); // هدایت بدون رفرش
   };
 
-  
+
   return (
         <>
             <p>color = {searchParams.get("color")}</p>
