@@ -21,7 +21,6 @@ export default function FilterButton() {
     // ترکیب pathname و query → URL کامل
     const url = `${pathname}?${newQuery.toString()}`;
 
-    // هدایت بدون رفرش
     router.push(url); 
   };
 
