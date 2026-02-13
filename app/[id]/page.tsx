@@ -13,7 +13,6 @@ export default function FilterButton() {
 
 
   const handleClick = () => {
-    // ساخت query جدید
     const newQuery = new URLSearchParams(searchParams.toString());
     newQuery.set("color", "blue");
     newQuery.set("size", "l");
