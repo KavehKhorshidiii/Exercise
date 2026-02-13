@@ -9,9 +9,9 @@ export default function FilterButton() {
   const searchParams = useSearchParams(); // هوک useSearchParams برای دسترسی به پارامترهای جستجو (query parameters)
 
 
-  //console.log('router =>' , router)
+  console.log('router =>' , router)
   console.log('pathname => ' , pathname)
-  console.log('searchParams => ' , searchParams)
+  console.log(searchParams.toString())
 
 
 
