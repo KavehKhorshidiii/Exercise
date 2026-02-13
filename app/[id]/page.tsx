@@ -8,11 +8,9 @@ export default function FilterButton() {
   const pathname = usePathname(); // هوک usePathname برای دسترسی به مسیر فعلی
   const searchParams = useSearchParams(); // هوک useSearchParams برای دسترسی به پارامترهای جستجو (query parameters)
 
-
   console.log('router =>' , router)
   console.log('pathname => ' , pathname)
   console.log(searchParams.toString())
-
 
 
   const handleClick = () => {
