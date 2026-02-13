@@ -18,7 +18,6 @@ export default function FilterButton() {
     newQuery.set("color", "blue");
     newQuery.set("size", "l");
 
-    // ترکیب pathname و query → URL کامل
     const url = `${pathname}?${newQuery.toString()}`;
 
     router.push(url); 
