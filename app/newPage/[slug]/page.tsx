@@ -1,12 +1,12 @@
-// فرض کنیم API داریم که slug برمی‌گردونه
+async function GetData({ params }: { params: { slug: string } }) {
+    const slug = params.slug;
+    return slug;
+}
 
 
-export default async function Page({ params }: { params: { slug: string } }) {
 
-  const data = await params
-  console.log(data)
-
-  return (
-      <p>{data.slug}</p>
-  );
+// app/posts/[slug]/page.tsx
+export default async function PostPage() {
+  const data = await GetData();
+  return <div>Slug: {data}</div>;
 }
