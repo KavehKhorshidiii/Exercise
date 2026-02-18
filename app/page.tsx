@@ -3,6 +3,7 @@
 export default async function Home() {
 
   type UserType = {
+    
     id: number;
     name: string;
     username: string;
