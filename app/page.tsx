@@ -15,12 +15,13 @@ export default async function Home() {
 
   return (
     <div className="bg-black  flex flex-col justify-center items-center">
-      
+
       {
         users.map((item: UserType) => (
           <p key={item.id}>{item.name}</p>
         ))
       }
+      
     </div>
   );
 
