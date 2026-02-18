@@ -3,10 +3,10 @@
 export default async function Home() {
 
   type UserType = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
+    id: number;
+    name: string;
+    username: string;
+    email: string;
   }
 
   const api = await fetch('https://jsonplaceholder.typicode.com/users')
@@ -16,9 +16,9 @@ export default async function Home() {
   return (
     <div className="bg-black  flex flex-col justify-center items-center">
       {
-        users.map((item:UserType) => (
+        users.map((item: UserType) => (
           <p key={item.id}>{item.name}</p>
-        ))        
+        ))
       }
     </div>
   );
