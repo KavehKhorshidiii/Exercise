@@ -9,6 +9,7 @@ export default async function Home() {
     email: string;
   }
 
+  
   const api = await fetch('https://jsonplaceholder.typicode.com/users')
   const users = await api.json()
 
@@ -21,7 +22,7 @@ export default async function Home() {
           <p key={item.id}>{item.name}</p>
         ))
       }
-      
+
     </div>
   );
 
