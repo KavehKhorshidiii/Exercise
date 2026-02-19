@@ -9,7 +9,7 @@ export default async function Home() {
   }
 
 
-  const api = await fetch('https://jsonplaceholder.typicode.com/users')
+  const api= await fetch('https://jsonplaceholder.typicode.com/users')
   console.log(api)
   const users = await api.json()
 
@@ -22,7 +22,7 @@ export default async function Home() {
         users.map((item: UserType) => (
           <p key={item.id}>{item.name}</p>
         ))
-        
+
       }
     </div>
   );
