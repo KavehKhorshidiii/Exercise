@@ -1,6 +1,6 @@
 export default async function Home() {
 
-  
+
   type UserType = {
     id: number;
     name: string;
@@ -13,6 +13,7 @@ export default async function Home() {
   console.log(api)
   const users = await api.json()
 
+  
   return (
     <div className="bg-black  flex flex-col justify-center items-center">
       {
