@@ -8,6 +8,7 @@ export default async function Home() {
   }
 
   const api = await fetch('https://jsonplaceholder.typicode.com/users')
+  console.log(api)
   const users = await api.json()
 
   return (
