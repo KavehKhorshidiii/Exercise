@@ -11,7 +11,6 @@ export default async function Home() {
   const users = await api.json()
 
   return (
-
     <div className="bg-black  flex flex-col justify-center items-center">
       {
 
