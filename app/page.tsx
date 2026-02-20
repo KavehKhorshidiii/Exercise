@@ -16,7 +16,6 @@ export default async function Home() {
         users.map((item: UserType) => (
           <p key={item.id}>{item.name}</p>
         ))
-
       }
     </div>
   );
