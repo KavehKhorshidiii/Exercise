@@ -13,6 +13,7 @@ export default async function Home() {
 
   return (
     <div>
+
       <h1>Users List</h1>
 
       {
@@ -22,7 +23,8 @@ export default async function Home() {
           </div>
         ))
       }
+      
     </div>
   )
-  
+
 }
