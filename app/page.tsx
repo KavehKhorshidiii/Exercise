@@ -16,12 +16,13 @@ export default async function Home() {
       <h1>Users List</h1>
 
       {
-      users.map((user: UserType) => (
-        <div key={user.id}>
-          <Link href={`/${user.id}`}>{user.name}</Link>
-        </div>
+        users.map((user: UserType) => (
+          <div key={user.id}>
+            <Link href={`/${user.id}`}>{user.name}</Link>
+          </div>
         ))
       }
     </div>
   )
+  
 }
