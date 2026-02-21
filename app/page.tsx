@@ -6,7 +6,7 @@ type UserType = {
 }
 
 export default async function Home() {
-  
+
   const res = await fetch("https://jsonplaceholder.typicode.com/users")
 
   const users = await res.json()
@@ -15,13 +15,13 @@ export default async function Home() {
     <div>
       <h1>Users List</h1>
 
-      {users.map((user: UserType) => (
+      {
+      users.map((user: UserType) => (
         <div key={user.id}>
-          <Link href={`/${user.id}`}>
-            {user.name}
-          </Link>
+          <Link href={`/${user.id}`}>{user.name}</Link>
         </div>
-      ))}
+        ))
+      }
     </div>
   )
 }
