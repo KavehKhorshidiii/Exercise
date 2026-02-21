@@ -1,23 +1,28 @@
-export default async function Home() {
-  
-  type UserType = {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-  }
+import Link from "next/link"
 
-  const api = await fetch('https://jsonplaceholder.typicode.com/users')
-  const users = await api.json()
+type UserType = {
+  id: number
+  name: string
+}
+
+export default async function Home() {
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/users"
+  )
+
+  const users = await res.json()
 
   return (
-    <div className="bg-black  flex flex-col justify-center items-center">
-      {
-        users.map((item: UserType) => (
-          <p key={item.id}>{item.name}</p>
-        ))
-      }
-    </div>
-  );
+    <div>
+      <h1>Users List</h1>
 
+      {users.map((user: UserType) => (
+        <div key={user.id}>
+          <Link href={`/${user.id}`}>
+            {user.name}
+          </Link>
+        </div>
+      ))}
+    </div>
+  )
 }
