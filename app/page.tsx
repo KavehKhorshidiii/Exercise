@@ -2,7 +2,7 @@ import Link from "next/link"
 
 type UserType = {
   id: number
-  name: string
+  name:  string
 }
 
 export default async function Home() {
@@ -23,7 +23,7 @@ export default async function Home() {
           </div>
         ))
       }
-      
+
     </div>
   )
 
