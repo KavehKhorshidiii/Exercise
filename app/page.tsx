@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 type UserType = {
-  id: number
+  id:  number
   name: string
 }
 
