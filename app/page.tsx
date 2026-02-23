@@ -1,8 +1,8 @@
 import Link from "next/link"
 
 type UserType = {
-  id:  number
-  name:  string
+  id:number
+  name:string
 }
 
 export default async function Home() {
