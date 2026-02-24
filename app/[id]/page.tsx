@@ -9,7 +9,6 @@ export default function UserPage() {
 
     return (
         <div>
-           <h1>Show = {x ? '❌' : '✅'}</h1>
            <button onClick={()=> setX(!x)} className=" border-2 p-4 rounded-2xl">change</button>
         </div>
     )
