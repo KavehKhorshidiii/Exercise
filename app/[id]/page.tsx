@@ -1,26 +1,16 @@
-export async function generateStaticParams() {
+'use client'
 
-    const res = await fetch("https://jsonplaceholder.typicode.com/users")
-
-    const users = await res.json()
-
-    return users.map((user: { id: number }) => ({id: user.id.toString(),}))
-
-}
+import { useState } from "react"
 
 
-export default async function UserPage({ params }: { params: Promise<{ id: string }> }) {
+export default function UserPage() {
 
-    const { id } = await params
-
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-
-    const user = await res.json()
+    const [x , setX] = useState(true)
 
     return (
         <div>
-            <h1>{id}</h1>   
-            <h1>{user.name}</h1>
+           <h1>Show = {x ? '❌' : '✅'}</h1>
+           <button onClick={()=> setX(!x)} className=" border-2 p-4 rounded-2xl">change</button>
         </div>
     )
 
