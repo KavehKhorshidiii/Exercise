@@ -1,28 +1,15 @@
-import React from "react"
+"use client"
 
 
-type PageProps = {
-  searchParams: Promise<{
-    category?: string
-    page?: string
-  }>
+
+
+import { useSearchParams } from "next/navigation"
+
+export default function FilterInfo() {
+  const searchParams = useSearchParams()
+
+  const category = searchParams.get("category")
+
+  return <p>Category: {category}</p>
 }
-
-
-export default async function UserPage({ searchParams } : PageProps) {
-
-    const myParams = await searchParams
-    //const {category , page} = React.use(searchParams)
-
-
-    return (
-        <div>
-            <p>shop</p>
-            <p>{myParams.category}</p>
-            <p>{myParams.page}</p>
-        </div>
-    )
-
-}
-
 
