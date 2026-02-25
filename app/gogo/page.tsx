@@ -2,6 +2,7 @@
 import { useSearchParams } from "next/navigation"
 
 
+
 export default function FilterInfo() {
 
   const searchParams = useSearchParams()
