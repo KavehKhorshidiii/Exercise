@@ -9,15 +9,17 @@ type PageProps = {
 }
 
 
-export default function UserPage({ searchParams } : PageProps) {
+export default async function UserPage({ searchParams } : PageProps) {
 
-    const {category , page} = React.use(searchParams)
+    const myParams = await searchParams
+    //const {category , page} = React.use(searchParams)
+
 
     return (
         <div>
             <p>shop</p>
-            <p>{category}</p>
-            <p>{page}</p>
+            <p>{myParams.category}</p>
+            <p>{myParams.page}</p>
         </div>
     )
 
