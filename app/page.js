@@ -1,69 +1,94 @@
-// app/page.js
-'use client'
+// components/LoginForm.js
+'use client';
 
-import Form from './form'
-import { useState, useEffect } from 'react';
-//import { writeFile } from "fs/promises";
-//import fs from 'fs';
-//import path from "path";
+import { useState } from 'react';
 
+export default function LoginForm({ onSuccess, redirectTo = '/dashboard' }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
 
-export default function Home() {
-
-    const [data, setData] = useState([]);
-    const [close, setClose] = useState('hidden');
-    const [theUser, setUser] = useState('');
-    const [newName, setNewName] = useState('');
-
-    useEffect(() => {
-        fetch('http://localhost:3000/api')
-            .then((res) => res.json())
-            .then((D) => setData(D))
-    }, []);
-
-    const deleteHandler = async (id) => {
-
-        await fetch(`http://localhost:3000/api?id=${id}`, {
-            method: "DELETE",
-        })
-
+    if (!username.trim() || !password.trim()) {
+      setError('لطفاً تمام فیلدها را پر کنید');
+      setLoading(false);
+      return;
     }
 
-    const PutHandler = async (user) => {
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
 
-        if (close == 'hidden') { setClose('block') } else { setClose('hidden') }
-        setUser(user)
+      const data = await res.json();
 
+      if (res.ok) {
+        localStorage.setItem('token', data.token);
+        if (onSuccess) {
+          onSuccess();
+        } else {
+          window.location.href = redirectTo;
+        }
+      } else {
+        setError(data.message || 'ورود ناموفق بود');
+      }
+    } catch (err) {
+      setError('خطا در ارتباط با سرور');
+    } finally {
+      setLoading(false);
     }
+  };
 
-    const editFunc = async () => {
-        await fetch(`http://localhost:3000/api`, {
-            method: "PUT",
-            body: JSON.stringify({id:theUser.id ,name:newName})
-        })
-        setClose('hidden')
-    }
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2 text-right">
+          نام کاربری یا ایمیل
+        </label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-right"
+          dir="rtl"
+          required
+        />
+      </div>
 
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2 text-right">
+          رمز عبور
+        </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-right"
+          dir="rtl"
+          required
+        />
+      </div>
 
-
-    return (
-        <div className=' flex flex-col gap-3'>
-            {data.users ? data.users.map(user =>
-                <div key={user.id}>
-                    {user.id} - {user.name}
-                    <button className=' bg-red-500 border-2 p-1 rounded-2xl' onClick={() => deleteHandler(user.id)}>Del</button>
-                    <button className=' bg-amber-500 border-2 p-1 rounded-2xl' onClick={() => PutHandler(user)}>Put / Patch</button>
-                </div>
-            ) : <p>Loading...</p>}
-            <Form></Form>
-            <div className={` ${close} h-full w-full  flex-col items-center justify-center bg-black absolute p-3 border-2 border-amber-500`}>
-                <div className=' flex justify-center'>
-                    <input onChange={(e)=>setNewName(e.target.value)} className='border-2 p-2 border-amber-500 rounded-2xl' type="text" />
-                    <button onClick={editFunc} className='border-2 p-2 border-amber-500 rounded-2xl'>Edit</button>
-                    <button onClick={() => close == 'hidden' ? setClose('block') : setClose('hidden')} className='  border-2 p-2 border-amber-500 rounded-2xl'>Close</button>
-                </div>
-            </div>
+      {error && (
+        <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm text-right">
+          {error}
         </div>
-    );
+      )}
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 font-medium"
+      >
+        {loading ? 'در حال ورود...' : 'ورود'}
+      </button>
+    </form>
+  );
 }
