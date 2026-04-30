@@ -1,31 +1,24 @@
 // app/api/route.js
 
 
-// import { writeFile } from "fs/promises";
-// import fs, { writeFileSync } from "fs";
-// import path from "path";
+import { writeFile } from "fs/promises";
+import fs from "fs";
+import path from "path";
 
 
-    // const filePath = path.join(process.cwd(), "database", "DB.json");
-    // // console.log(filePath)
-    // // /Users/macbookair/Documents/NextJs/exercise/database/DB.json
 
 
-    // const fileData = fs.readFileSync(filePath);
-    // // console.log(fileData)
-    // // <Buffer 7b 0a 20 20 20 20 22 75 73 65 72 73 22 7d 0a ... 7 more bytes>
+export async function POST(req) {
 
+    const {username , password} = await req.json() //{ username: 'kaveh', password: '2003' }
 
-    // const users = JSON.parse(fileData);
-    // console.log(users)
-    // // { users: [ { id: 1, name: 'kaveh' } ] }
+    const filePath = path.join(process.cwd(), "database", "DB.json"); //Path
+    const fileData = fs.readFileSync(filePath); //Buffer
+    const user = JSON.parse(fileData); // { users: [ { id: 1, name: 'kaveh' } ] }
+    
+    user.user.push({username , password})
+    await writeFile(filePath, JSON.stringify(user, null, 2));
 
-    // const fileData = fs.readFileSync(filePath);
-    // // console.log(fileData)
-    // // <Buffer 7b 0a 20 20 20 20 22 75 73 65 72 73 22 7d 0a ... 7 more bytes>
+    return Response.json("POST")
 
-
-    // const users = JSON.parse(fileData);
-    // console.log(users)
-    // // { users: [ { id: 1, name: 'kaveh' } ] }
-
+}

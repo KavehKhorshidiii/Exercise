@@ -3,14 +3,15 @@
 
 import { useState } from 'react';
 
-export default function LoginForm({ onSuccess, redirectTo = '/dashboard' }) {
+export default function LoginForm() {
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-  
+
     e.preventDefault();
 
     setError('');
@@ -22,32 +23,30 @@ export default function LoginForm({ onSuccess, redirectTo = '/dashboard' }) {
       return;
     }
 
-    if(error){console.log(error)}
 
-    // try {
-    //   const res = await fetch('/api/auth/login', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ username, password }),
-    //   });
 
-    //   const data = await res.json();
+    try {
 
-    //   if (res.ok) {
-    //     localStorage.setItem('token', data.token);
-    //     if (onSuccess) {
-    //       onSuccess();
-    //     } else {
-    //       window.location.href = redirectTo;
-    //     }
-    //   } else {
-    //     setError(data.message || 'ورود ناموفق بود');
-    //   }
-    // } catch (err) {
-    //   setError('خطا در ارتباط با سرور');
-    // } finally {
-    //   setLoading(false);
-    // }
+      const res = await fetch('http://localhost:3000/api/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if(res.status === 200){
+        setUsername('')
+        setPassword('')
+      }
+
+    } catch (err) {
+
+      setError('خطا در ارتباط با سرور');
+
+    } finally {
+
+      setLoading(false);
+
+    }
 
 
   };

@@ -1,8 +1,8 @@
 {
-  "users": [
+  "user": [
     {
-      "id": 1,
-      "name": "a1"
+      "username": "sdsdccd",
+      "password": "sdcdd"
     }
   ]
 }
