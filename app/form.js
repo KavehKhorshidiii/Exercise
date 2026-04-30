@@ -1,26 +1,94 @@
-'use client'
-import { useState } from 'react'
+// components/LoginForm.js
+'use client';
 
-export default function Form() {
+import { useState } from 'react';
 
-  const [name, setName] = useState('')
+export default function LoginForm({ onSuccess, redirectTo = '/dashboard' }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const postFunc = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
 
-    await fetch("http://localhost:3000/api", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", },
-      body: JSON.stringify( name ),
-    })
+    if (!username.trim() || !password.trim()) {
+      setError('لطفاً تمام فیلدها را پر کنید');
+      setLoading(false);
+      return;
+    }
 
-    setName('')
-  }
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
 
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem('token', data.token);
+        if (onSuccess) {
+          onSuccess();
+        } else {
+          window.location.href = redirectTo;
+        }
+      } else {
+        setError(data.message || 'ورود ناموفق بود');
+      }
+    } catch (err) {
+      setError('خطا در ارتباط با سرور');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <div className=' flex gap-4 flex-col border-2 p-5 rounded-2xl'>
-      <input value={name} onChange={(e) => setName(e.target.value)} className='border-2 p-2 rounded-2xl' type="text" />
-      <button onClick={postFunc} className='border-2 p-5 rounded-2xl'>ADD</button>
-    </div>
-  )
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2 text-right">
+          نام کاربری یا ایمیل
+        </label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-right"
+          dir="rtl"
+          required
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2 text-right">
+          رمز عبور
+        </label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-right"
+          dir="rtl"
+          required
+        />
+      </div>
+
+      {error && (
+        <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm text-right">
+          {error}
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 font-medium"
+      >
+        {loading ? 'در حال ورود...' : 'ورود'}
+      </button>
+    </form>
+  );
 }
